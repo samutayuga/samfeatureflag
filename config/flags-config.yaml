@@ -1,0 +1,42 @@
+test-flag:
+  variations:
+    my-new-feature: true
+    my-old-feature: false
+  defaultRule:
+    percentage:
+      my-new-feature: 20
+      my-old-feature: 80
+canary-flag:
+  variations:
+    oldBehavior: false
+    canary: true
+  defaultRule:
+    percentage:
+      oldBehavior: 99
+      canary: 1
+experimentation-flag:
+  variations:
+    variationA: A
+    variationB: B
+  defaultRule:
+    percentage:
+      variationA: 50
+      variationB: 50
+  experimentation:
+    start: 2023-06-20T00:00:00.1-05:00
+    end: 2023-07-19T00:00:00.1-05:00
+hex-color:
+  state: ENABLED
+  variants:
+    red: c05543
+    green: 2f5230
+    blue: 0d507b
+    yellow: d4ac0d
+  defaultVariant: red
+  targeting:
+    if:
+    - in:
+      - var:
+        - email
+      - "@faas.com"
+    - blue
